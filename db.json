@@ -206,6 +206,30 @@
       "paymentStatus": "Paid"
     }
   ],
-  "expenses": [],
+  "expenses": [
+    {
+      "expenseNo": "E001",
+      "description": "Business Rent",
+      "paidTo": "Mali Investments",
+      "dueDate": "2026-11-18",
+      "amount": 10000,
+      "status": "Paid",
+      "id": "Y1QAIOLle8M"
+    }
+  ],
+  "invoices": [],
+  "taxes": [
+    {
+      "period": "",
+      "totalIncome": "",
+      "totalExpenses": "",
+      "vatPayable": "",
+      "incomeTax": "",
+      "totalTax": "",
+      "status": "Filed",
+      "dateFiled": "2026-11-17T22:15:16.765Z",
+      "id": "HKm8p94rDyo"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

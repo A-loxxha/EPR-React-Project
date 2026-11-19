@@ -1,28 +1,10 @@
-import { useState, useEffect } from "react";
 import Invoice from "./Invoice";
 import Expenses from "./Expenses";
 import Tax from "./Tax";
+import { useFinance } from "../contexts/FinanceContexts";
 
 export default function Finance() {
-  const [income, setIncome] = useState([]);
-  const [expenses, setExpenses] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:4000/orders")
-      .then((res) => res.json())
-      .then((data) => setIncome(data));
-
-    fetch("http://localhost:4000/expenses")
-      .then((res) => res.json())
-      .then((data) => setExpenses(data));
-  }, []);
-
-  const totalIncome = income
-    .filter((order) => order.paymentStatus === "Paid")
-    .reduce((total, order) => total + order.total, 0);
-
-  const totalExpenses = expenses.reduce((total, e) => total + e.amount, 0);
-  const netProfit = totalIncome - totalExpenses;
+  const { totalIncome, totalExpenses, netProfit } = useFinance();
 
   return (
     <div className="finance-content fg-black">
@@ -41,10 +23,9 @@ export default function Finance() {
           <h3>Ksh {netProfit.toLocaleString()}</h3>
         </div>
       </div>
-
-      <Tax totalIncome={totalIncome} totalExpenses={totalExpenses} />
+      <Tax />
       <Invoice />
-      <Expenses />
+      {/* <Expenses /> */}
     </div>
   );
 }

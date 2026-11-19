@@ -1,60 +1,57 @@
-import { useState } from "react";
+import { useFinance } from "../contexts/FinanceContexts";
 
 const revenue = [
-    {id : 1, day:"Monday", amount:85000},
-    {id : 2, day:"Tuesday", amount:40000},
-    {id : 3, day:"Wednesday", amount:25000},
-    {id : 4, day:"Thursday", amount:185000},
-    {id : 5, day:"Friday", amount:150000},
-    {id : 6, day:"Saturday", amount:35000},
-    {id : 7, day:"Sunday", amount:10000},
+  { id: 1, day: "Monday", amount: 85000 },
+  { id: 2, day: "Tuesday", amount: 40000 },
+  { id: 3, day: "Wednesday", amount: 25000 },
+  { id: 4, day: "Thursday", amount: 185000 },
+  { id: 5, day: "Friday", amount: 150000 },
+  { id: 6, day: "Saturday", amount: 35000 },
+  { id: 7, day: "Sunday", amount: 10000 },
 ];
 
+export default function Dashboard() {
+  const { totalIncome, netProfit } = useFinance();
 
-const totalRevenue = Number(1000000).toLocaleString();
-export default function Dashboard(){
-
-    return(
-            <div className="overview fg-black">
-                <h1>Dashboard</h1>
-                <h3>Business Overview</h3>
-                <div className="overview-wrapper">
-                    <div className="overview-card">
-                        <p>Total Revenue</p>
-                        <h3>Ksh {totalRevenue}</h3>
-                        <p>↑ 12.5% vs last month</p>
-                    </div>
-                    <div className="overview-card">
-                        <p>Net Profit</p>
-                        <h3>Ksh 102K</h3>
-                        <p>↑ 8.2% vs last month</p>
-                    </div>
-                    <div className="overview-card">
-                        <p>Total Orders</p>
-                        <h3>204</h3>
-                        <p>↑ 6.4% vs last month</p>
-                    </div>
-                    <div className="overview-card">
-                        <p>Average Order Value</p>
-                        <h3>Ksh 2605</h3>
-                        <p>↑ 3.1% vs last month</p>
-                    </div>
-                    <div className="overview-card">
-                        <p>Average weekly Revenue</p>
-                        <div>
-                            {<ol>
-                                {revenue.map((day)=>{
-                                    return(
-                                    <li key={day.id}>
-                                        {day.day}<span>Ksh {day.amount.toLocaleString()}</span>
-                                    </li>
-                                )})
-                                }
-                            </ol>}
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-    )
+  return (
+    <div className="overview fg-black">
+      <h1>Dashboard</h1>
+      <h3>Business Overview</h3>
+      <div className="overview-wrapper">
+        <div className="overview-card">
+          <h4>Total Revenue</h4>
+          <h3>Ksh {totalIncome.toLocaleString()}</h3>
+          <p><span><i class="bi bi-arrow-up"></i>12.5%</span> vs last month</p>
+        </div>
+        <div className="overview-card">
+          <h4>Net Profit</h4>
+          <h3>Ksh {netProfit.toLocaleString()}</h3>
+          <p><span><i class="bi bi-arrow-up"></i>8.2% </span>vs last month</p>
+        </div>
+        <div className="overview-card">
+          <h4>Total Orders</h4>
+          <h3>204</h3>
+          <p><span><i class="bi bi-arrow-up"></i>6.4%</span> vs last month</p>
+        </div>
+        <div className="overview-card">
+          <h4>Average Order Value</h4>
+          <h3>Ksh 2605</h3>
+          <p><span><i class="bi bi-arrow-up"></i>3.1% </span> vs last month</p>
+        </div>
+        <div className="overview-card">
+          <h4>Average weekly Revenue</h4>
+          <div>
+            <ol>
+              {revenue.map((day) => (
+                <li key={day.id}>
+                  {day.day}
+                  <span>Ksh {day.amount.toLocaleString()}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

@@ -1,19 +1,11 @@
 import { useState, useEffect } from "react";
 
-const emptyForm = {
-  orderNo: "",
-  customer: "",
-  date: "",
-  total: "",
-  paymentMethod: "",
-  paymentStatus: "Pending",
-};
 
 export default function SalesManagement() {
   const [orders, setOrders] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [id, setid] = useState([]);
-  const [form, setForm] = useState(emptyForm);
+  const [form, setForm] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:4000/orders")
@@ -23,7 +15,7 @@ export default function SalesManagement() {
 
   function openAddModal() {
     setid([]);
-    setForm(emptyForm);
+    setForm({});
     setShowModal(true);
   }
 
@@ -48,9 +40,7 @@ export default function SalesManagement() {
     const isEditing = id !== null;
 
     fetch(
-      isEditing
-        ? `http://localhost:4000/orders/${id}`
-        : "http://localhost:4000/orders",
+      isEditing? `http://localhost:4000/orders/${id}`: "http://localhost:4000/orders",
       {
         method: isEditing ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },

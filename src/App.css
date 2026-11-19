@@ -62,16 +62,14 @@ nav form input{
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     scrollbar-width: thin;
-    height: 100vh;
+    height: 93vh;
 }
 
-.overview-landing img{
-    width: 30%;
-}
+
 
 .overview-landing h1{
     font-size: 500%;
-    letter-spacing: px;
+    letter-spacing: 3px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -82,13 +80,19 @@ nav form input{
     background-color: var(--sec-bg-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    height: 100vh;
+    height: 72vh;
 }
 
 .overview h2{
     font-size: 3rem;
+}
+.overview p{
+    color: rgb(88, 88, 88);
+}
+
+.overview p span{
+    color: green;
+    font-weight: 900;
 }
 
 .overview-wrapper{
@@ -98,6 +102,9 @@ nav form input{
     background: linear-gradient();
     border-radius: var(--border-radius);
     padding: 1rem;
+    overflow-y: scroll;
+    height: 50vh;
+    scrollbar-width: thin;
 }
 
 .overview-card{
@@ -116,21 +123,25 @@ nav form input{
     font-size: larger;
 }
 
+.overview-card li{
+    color: rgb(54, 54, 54);
+}
+
 .overview-card li span{
     letter-spacing: 0.15rem;
     margin: 1rem;
     font-size: medium;
     font-weight: normal;
-    
 }
 
 .navbar{
     height: 20vh;
     display: flex;
+    backdrop-filter: blur(2px);
     background-color: var(--sec-bg-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    justify-content: center;
+    justify-content: space-between;
 
 }
 
@@ -153,7 +164,7 @@ nav form input{
     box-shadow: var(--box-shadow);
     overflow-y: scroll;
     scrollbar-width: thin;
-    height: fit-content;
+    height: 72vh;
 }
 
 .inventory table{
@@ -189,7 +200,7 @@ button:hover{
     box-shadow: var(--box-shadow);
     overflow-y: scroll;
     scrollbar-width: thin;
-    height: fit-content;
+    height: 72vh;
 }
 
 .customer-table table{
@@ -232,7 +243,7 @@ button:hover{
     box-shadow: var(--box-shadow);   
     overflow-y: scroll;
     scrollbar-width: thin;
-    height: 100vh;
+    height: 72vh;
 }
 
 .sales-table table{
@@ -263,7 +274,7 @@ button:hover{
     box-shadow: var(--box-shadow);
     overflow-y: scroll;
     scrollbar-width: thin;
-    height: 100vh;
+    height: 72vh;
 }
 
 .finance-wrapper{
@@ -306,4 +317,6 @@ button:hover{
     position: absolute;
     inset: 0;
     padding: 10rem;
+    background-color: rgba(0, 0, 0, 0.408);
+    backdrop-filter: blur(10px);
 }

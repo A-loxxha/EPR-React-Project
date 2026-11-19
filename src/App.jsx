@@ -6,12 +6,12 @@ import Finance from "./components/Finance";
 import Customers from "./components/Customers";
 import Inventory from "./components/Inventory";
 import Landing from "./components/Landing";
-import { ProductContext } from "./contexts/ProductContext";
 import AppRoute from "./routes/AppRoute";
+import { FinanceProvider } from "./contexts/FinanceContexts";
 
 export default function App() {
   return (
-    <ProductContext>
+    <FinanceProvider>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route element={<AppRoute />}>
@@ -22,6 +22,6 @@ export default function App() {
           <Route path="/inventory" element={<Inventory />} />
         </Route>
       </Routes>
-    </ProductContext>
+    </FinanceProvider>
   );
 }
