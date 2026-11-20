@@ -27,7 +27,7 @@ export function FinanceProvider({children}) {
   const netProfit = totalIncome - totalExpenses;
 
   return (
-    <FinanceContext.Provider value={{income, expenses, setExpenses, totalIncome, totalExpenses, netProfit, }}>
+    <FinanceContext.Provider value={{income, expenses, setExpenses, totalIncome, totalExpenses, netProfit}}>
         {children}
     </FinanceContext.Provider>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useFinance } from "../contexts/FinanceContexts";
+import { FinanceContext, useFinance } from "../contexts/FinanceContexts";
 
 const emptyForm = {
   expenseNo: "",
@@ -9,7 +9,9 @@ const emptyForm = {
   amount: "",
   status: "Pending",
 }
-export default function Expenses({ expenses, setExpenses }) {
+
+export default function Expenses() {
+  const {expenses, setExpenses} = useFinance()
   const [showModal, setShowModal] = useState(false)
   const [form, setForm] = useState(emptyForm)
 
@@ -55,7 +57,7 @@ export default function Expenses({ expenses, setExpenses }) {
   }
   return (
     <section className="mt-5">
-      <div className="d-flex justify-content-between align-items-center mb-3">
+      <div className="d-flex align-items-center mb-3">
         <h3 className="mb-0">Expenses</h3>
         <button className="btn btn-dark rounded-pill px-4" onClick={() => openModal()}>
           <i className="bi bi-plus-lg me-1"></i> Add Expense
@@ -95,15 +97,14 @@ export default function Expenses({ expenses, setExpenses }) {
         </table>
       </div>
       {showModal && (
-        <div className="modal d-block">
-          <div className="modal-dialog modal-dialog-centered">
+        <div className="modal">
+          <div className="modal-wrapper">
             <form className="modal-content" onSubmit={handleSave}>
               <div className="modal-header">
                 <h5 className="modal-title">
                   {form.id !== undefined ? "Update Expense" : "Add Expense"}
                 </h5>
-                <button type="button" className="btn-close" onClick={() => setShowModal(false)}>
-                </button>
+                <button type="button" className="btn btn-danger" onClick={() => setShowModal(false)}><i class="bi bi-x"></i></button>
               </div>
 
               <div className="modal-body d-flex flex-column gap-3">
@@ -119,9 +120,9 @@ export default function Expenses({ expenses, setExpenses }) {
                 </select>
               </div>
 
-              <div>
-                <button type="button" className="btn" onClick={() => setShowModal(false)}>Cancel</button>
-                <button type="submit" className="btn">Save</button>
+              <div className="p-3">
+                <button type="button" className="btn btn-danger" onClick={() => setShowModal(false)}>Cancel</button>
+                <button type="submit" className="btn btn-secondary">Save</button>
               </div>
             </form>
           </div>

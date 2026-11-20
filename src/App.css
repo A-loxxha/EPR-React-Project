@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css");
 
 :root{
@@ -10,26 +10,45 @@
     --gradient: linear-gradient(rgb(150, 150, 150), rgb(192, 187, 187), rgb(62, 61, 61));
 }
 
-
-
 body{
     background: var(--gradient);
+    background: url("assets/Bg.jpg");
+    background-size: cover;
 }
 
-.content{
+button{
+    margin-left: 1rem;
+    backdrop-filter: blur(5px);
+}
+
+.mainContent{
     display: flex;
-    min-height: 100vh;
+}
+
+.side-bar{
+    position: fixed;
+    margin: 1rem;
+}
+
+.link{
+    color: white;
+}
+
+.link:hover{
+    color: white;
+    text-decoration: none;
 }
 
 .side-bar nav{
     background-color: var(--sec-bg-color);
     display: flex;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 12.5rem;
     padding: 2rem;
+    height: 100vh;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-
+    backdrop-filter: blur(2px);
 }
 .side-bar button{
     display: block;
@@ -42,7 +61,7 @@ body{
 
 nav form input{
     height: 2rem;  
-    width: 10rem;  
+    width: 10rem;
     border: none;
     background-color: rgb(205, 205, 205);
     border-radius: var(--border-radius);
@@ -55,32 +74,32 @@ nav form input{
 
 .overview-landing{
     margin: 1.5rem;
-    padding: 2rem;
+    padding: 5rem;
+    height: 86vh;
     flex: 1;
     background: url(assets/Bg.jpg);
     background-size: cover;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    scrollbar-width: thin;
-    height: 93vh;
+    
 }
 
-
-
 .overview-landing h1{
-    font-size: 500%;
+    font-size: 8vh;
     letter-spacing: 3px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 
 .overview{
-    margin: 1.5rem;
+    margin-left: 17rem;
+    margin-top: 1rem;
     padding: 2rem;
     flex: 1;
     background-color: var(--sec-bg-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    height: 72vh;
+    width: 100%;
 }
 
 .overview h2{
@@ -97,23 +116,19 @@ nav form input{
 
 .overview-wrapper{
     display: grid;
-    background: var(--gradient);
     grid-template-columns: 1fr 1fr;
     background: linear-gradient();
     border-radius: var(--border-radius);
     padding: 1rem;
-    overflow-y: scroll;
-    height: 50vh;
-    scrollbar-width: thin;
 }
 
 .overview-card{
-    background-color: var(--sec-bg-color);
     margin: 1rem;
     padding: 1rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     text-align: center;
+    backdrop-filter: blur(2px);
 }
 
 .overview-card ol{
@@ -132,26 +147,20 @@ nav form input{
     margin: 1rem;
     font-size: medium;
     font-weight: normal;
+
 }
 
 .navbar{
-    height: 20vh;
-    display: flex;
+    position: fixed;
     backdrop-filter: blur(2px);
     background-color: var(--sec-bg-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    justify-content: space-between;
-
+    margin: 0.5rem;
 }
 
-
-.navbar img{
-    height: 100%;
-}
-
-.navbar .link{
-    text-decoration: none;
+.navbar link{
+  z-index: 5;
 
 }
 
@@ -162,9 +171,8 @@ nav form input{
     padding: 2rem;
     flex: 1;
     box-shadow: var(--box-shadow);
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    height: 72vh;
+    margin-left: 17rem;
+    margin-top: 1rem;
 }
 
 .inventory table{
@@ -178,7 +186,6 @@ nav form input{
 
 .inventory tbody{
     text-align: center;
-    overflow-y: scroll;
 }
 
 .inventory td{
@@ -198,9 +205,8 @@ button:hover{
     background-color: var(--sec-bg-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    height: 72vh;
+    margin-left: 17rem;
+    margin-top: 1rem;
 }
 
 .customer-table table{
@@ -214,7 +220,6 @@ button:hover{
 
 .customer-table tbody{
     text-align: center;
-    overflow-y: scroll;
 }
 
 .customer-table td{
@@ -232,6 +237,7 @@ button:hover{
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     text-align: center;
+    backdrop-filter: blur(2px);
 }
 
 .sales-content{
@@ -240,10 +246,9 @@ button:hover{
     flex: 1;
     background-color: var(--sec-bg-color);
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);   
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    height: 72vh;
+    box-shadow: var(--box-shadow);
+    margin-left: 17rem;
+    margin-top: 1rem;
 }
 
 .sales-table table{
@@ -257,7 +262,6 @@ button:hover{
 
 .sales-table tbody{
     text-align: center;
-    overflow-y: scroll;
 }
 
 .sales-table td{
@@ -272,9 +276,8 @@ button:hover{
     background-color: var(--sec-bg-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    height: 72vh;
+    margin-left: 17rem;
+    margin-top: 1rem;
 }
 
 .finance-wrapper{
@@ -289,6 +292,7 @@ button:hover{
     padding: 1rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    backdrop-filter: blur(2px);
     text-align: center;
     width: fit-content;
 }
@@ -305,7 +309,6 @@ button:hover{
 
 .finance-table tbody{
     text-align: center;
-    overflow-y: scroll;
 }
 
 .finance-table td{
@@ -314,9 +317,227 @@ button:hover{
 }
 
 .modal{
-    position: absolute;
+    position: fixed;
+    display: block;
     inset: 0;
-    padding: 10rem;
+    padding: 8rem;
     background-color: rgba(0, 0, 0, 0.408);
     backdrop-filter: blur(10px);
+}
+
+.modal .form-control{
+    margin: 2px;
+}
+
+.modal .modal-content{
+    background: url(assets/Bg.jpg);
+    background-size: cover;
+}
+
+@media (max-width: 900px) {
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    .navbar{
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .side-bar {
+        margin: 0;
+    } 
+
+    .side-bar nav {
+        margin-top: 0;
+        height: auto;
+        padding: 0.5rem;
+    }
+
+    .sideBarButtons {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+    .side-bar button {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        height: auto;
+        margin-top: 0;
+        padding: 1px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.65rem;
+    }
+
+    .side-bar button i {
+        font-size: 1rem;
+    }
+
+    .side-bar{
+        position: relative;   
+    }
+
+    .side-bar button{
+        background: none;
+        color: black;
+    }
+
+    .mainContent{
+        display: inline-block;
+    }
+
+    .overview-landing{
+        padding: 3rem;
+    }
+
+    .overview-landing h1{
+        font-size: 300%;
+    }
+
+    .overview{
+        margin-left: 1rem;
+        margin-top: 1rem;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .overview-wrapper{
+        grid-template-columns: 1fr;
+        padding: 1px;
+    }
+
+    .overview-card{
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        text-align: center;
+        backdrop-filter: blur(2px);
+    }
+
+    .sales-content{
+        margin: 1rem;
+    }
+
+    .sales-table thead {
+        display: none;
+    }
+    
+    .sales-table tr{
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        margin: 2rem;
+    }
+
+    .sales-table td {
+        display: flex;
+        border-bottom: var(--border);
+        text-align: right;
+    }
+
+    .sales-table td{
+        text-align: left;
+        margin-right: 1rem;
+    }
+
+    .finance-content {
+        margin: 1rem;
+        padding: 2rem;
+    }
+
+    .finance-wrapper {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .finance-card {
+        margin: 0.5rem;
+        width: 100%;
+    }
+
+    .finance-table thead {
+        display: none;
+    }
+
+    .finance-table tr {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 1rem;
+    }
+
+    .finance-table td {
+        display: flex;
+        padding: 1.5rem;
+        border-bottom: var(--border);
+    }
+
+    .finance-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .crm {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .customer-table thead {
+        display: none;
+    }
+
+    .customer-table tr {
+        border-radius: 1rem;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+
+    .customer-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: var(--border);
+        text-align: right;
+    }
+    
+    .inventory{
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .inventory table thead{
+        display: none;
+    }
+
+    .inventory table tr{
+        border-radius: 1rem;
+        box-shadow: var(--box-shadow);
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+
+    .inventory table td{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: var(--border);
+        text-align: right; 
+    }
+
+    .modal{
+        padding: 2rem;
+    }
+
+    .link{
+    color: black;
+    }
+
+    .link:hover{
+        color: white;
+        text-decoration: none;
+    }
 }

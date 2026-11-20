@@ -217,18 +217,28 @@
       "id": "Y1QAIOLle8M"
     }
   ],
-  "invoices": [],
+  "invoices": [
+    {
+      "invoiceNo": "I001",
+      "customer": "John Kamau",
+      "dateIssued": "2026-11-19",
+      "dueDate": "2026-11-30",
+      "amount": 2000,
+      "status": "Unpaid",
+      "id": "2lT3U0JM6rg"
+    }
+  ],
   "taxes": [
     {
-      "period": "",
-      "totalIncome": "",
-      "totalExpenses": "",
-      "vatPayable": "",
-      "incomeTax": "",
-      "totalTax": "",
+      "period": "2026-11",
+      "totalIncome": 36200,
+      "totalExpenses": 10000,
+      "vatPayable": 4192,
+      "incomeTax": 7860,
+      "totalTax": 12052,
       "status": "Filed",
-      "dateFiled": "2026-11-17T22:15:16.765Z",
-      "id": "HKm8p94rDyo"
+      "dateFiled": "2026-11-19",
+      "id": "xWvNeIu1wCQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

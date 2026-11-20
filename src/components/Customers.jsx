@@ -59,7 +59,7 @@ export default function Customers() {
   }
 
   return (
-    <div className="crm fg-black">
+    <div className="crm">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h1 className="h2 mb-0">Customers</h1>
         <button className="btn btn-dark rounded-pill px-4" onClick={() => openModal()}>
@@ -101,22 +101,22 @@ export default function Customers() {
           </tbody>
         </table>
       </div>{showModal && (
-        <div className="modal d-block">
-          <div className="modal-dialog modal-dialog-centered">
+        <div className="modal">
+          <div className="modal-wrapper">
             <form className="modal-content" onSubmit={handleSave}>
               <div className="modal-header">
                 <h5 className="modal-title">
                   {form.id !== undefined ? "Update Customer" : "Add Customer"}
                 </h5>
-                <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
+                <button type="button" className="btn btn-danger" onClick={() => setShowModal(false)}><i class="bi bi-x"></i></button>
               </div>
               <div className="modal-body d-flex flex-column gap-3"><input className="form-control" name="customerName" placeholder="Name" value={form.customerName} onChange={handleChange} required/>
                 <input className="form-control" name="customerNumber" placeholder="Phone number" value={form.customerNumber} onChange={handleChange} required/>
                 <input className="form-control" type="email" name="customerEmail" placeholder="Email" value={form.customerEmail} onChange={handleChange} required/>
               </div>
-              <div>
-                <button type="button" className="btn btn-light" onClick={() => setShowModal(false)}>Cancel</button>
-                <button type="submit" className="btn btn-dark">Save</button>
+              <div className="p-3">
+                <button type="button" className="btn btn-danger" onClick={() => setShowModal(false)}>Cancel</button>
+                <button type="submit" className="btn btn-secondary">Save</button>
               </div>
             </form>
           </div>

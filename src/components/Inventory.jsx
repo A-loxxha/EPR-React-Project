@@ -56,7 +56,7 @@ export default function Inventory() {
   }
 
   return (
-    <section className="inventory fg-black">
+    <section className="inventory">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h1 className="h2 mb-0">Inventory</h1>
         <button className="btn btn-dark rounded-pill px-4" onClick={() => openModal()}>
@@ -85,8 +85,8 @@ export default function Inventory() {
                 <td>{item.itemQuantity}</td>
                 <td>Ksh {item.itemPrice.toLocaleString()}</td>
                 <td>
-                  <button className="btn btn-sm" onClick={() => openModal(item)}>Update</button>
-                  <button className="btn btn-sm" onClick={() => deleteItem(item.id)}>Delete</button>
+                  <button className="btn btn-sm btn-outline-dark me-2" onClick={() => openModal(item)}>Update</button>
+                  <button className="btn btn-sm btn-outline-danger" onClick={() => deleteItem(item.id)}>Delete</button>
                 </td>
               </tr>
             ))}
@@ -94,14 +94,14 @@ export default function Inventory() {
         </table>
       </div>
         {showModal && (
-        <div className="modal d-block">
-          <div className="modal-dialog modal-dialog-centered">
+        <div className="modal">
+          <div className="modal-wrapper">
             <form className="modal-content" onSubmit={handleSave}>
               <div className="modal-header">
                 <h5 className="modal-title">
                   {form.id !== undefined ? "Update Item" : "Add Item"}
                 </h5>
-                <button type="button" className="btn-close" onClick={() => setShowModal(false)} ></button>
+                <button type="button" className="btn btn-danger " onClick={() => setShowModal(false)}><i class="bi bi-x"></i></button>
               </div>
               <div className="modal-body d-flex flex-column gap-3">
                 <input className="form-control" name="itemName" placeholder="Item name" value={form.itemName} onChange={handleChange} required/>
@@ -109,9 +109,9 @@ export default function Inventory() {
                 <input className="form-control" type="number" name="itemQuantity" placeholder="Quantity" min="0" value={form.itemQuantity} onChange={handleChange} required/>
                 <input className="form-control" type="number" name="itemPrice" placeholder="Price (Ksh)" min="0" value={form.itemPrice} onChange={handleChange}required />
               </div>
-              <div>
-                <button type="button"className="btn btn-light" onClick={() => setShowModal(false)} >Cancel</button>
-                <button type="submit" className="btn btn-dark">Save</button>
+              <div className="p-3">
+                <button type="button"className="btn btn-danger" onClick={() => setShowModal(false)} >Cancel</button>
+                <button type="submit" className="btn btn-secondary">Save</button>
               </div>
             </form>
           </div>

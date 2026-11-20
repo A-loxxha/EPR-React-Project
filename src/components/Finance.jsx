@@ -7,7 +7,7 @@ export default function Finance() {
   const { totalIncome, totalExpenses, netProfit } = useFinance();
 
   return (
-    <div className="finance-content fg-black">
+    <div className="finance-content">
       <h1>Finance</h1>
       <div className="finance-wrapper">
         <div className="finance-card">
@@ -25,7 +25,7 @@ export default function Finance() {
       </div>
       <Tax />
       <Invoice />
-      {/* <Expenses /> */}
+      <Expenses />
     </div>
   );
 }

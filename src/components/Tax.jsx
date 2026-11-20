@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
+import { useFinance} from "../contexts/FinanceContexts"
 
-export default function Tax({ totalIncome, totalExpenses }) {
+export default function Tax() {
+
+  const{totalIncome, totalExpenses} = useFinance()
   const [filings, setFilings] = useState([])
   const [showModal, setShowModal] = useState(false)
   const [period, setPeriod] = useState("")
   const taxRate = 0.16
   const incomeTaxRate = 0.3
+
   useEffect(() => {
     fetch("http://localhost:4000/taxes")
       .then((response) => response.json())
       .then((data) => setFilings(data))
   }, [])
 
-  const profit = Math.max(totalIncome - totalExpenses, 0)
+  const profit = totalIncome - totalExpenses
   const vatPayable = profit * taxRate
   const incomeTax = profit * incomeTaxRate
   const totalTax = vatPayable + incomeTax
@@ -25,14 +29,15 @@ export default function Tax({ totalIncome, totalExpenses }) {
       return;
     }
     const filing = {
-      period:"",
-      totalIncome:"",
-      totalExpenses:"",
-      vatPayable:"",
-      incomeTax:"",
-      totalTax:"",
-      status: "Filed",
-      dateFiled: new Date()}
+    period,
+    totalIncome,
+    totalExpenses,
+    vatPayable,
+    incomeTax,
+    totalTax,
+    status: "Filed",
+    dateFiled: new Date().toISOString().split("T")[0],
+}
 
     fetch("http://localhost:4000/taxes",{
       method: "POST",
@@ -67,8 +72,8 @@ export default function Tax({ totalIncome, totalExpenses }) {
   }
 
   return (
-    <section className="mt-5" fg-black>
-      <div className="d-flex justify-content-between mb-3">
+    <section className="mt-5">
+      <div className="d-flex mb-3">
         <h2 className="h4 mb-0">Tax</h2>
         <button
           className="btn btn-dark px-4" onClick={() => setShowModal(true)}>
@@ -93,10 +98,9 @@ export default function Tax({ totalIncome, totalExpenses }) {
                     <td>{filing.status}</td>
                     <td>{filing.dateFiled}</td>
                     <td>
-                        {filing.status !== "Paid" && (
-                            <button className="btn btn-sm" onClick={() => markPaid(filing.id)}>Mark Paid
-                            </button>)}
-                            <button className="btn btn-sm" onClick={() => deleteFiling(filing.id)}>Delete</button></td>
+                    {filing.status !== "Paid" && (
+                      <button className="btn btn-sm btn-outline-dark" onClick={() => markPaid(filing.id)}>Mark Paid</button>)}
+                      <button className="btn btn-sm btn-outline-danger" onClick={() => deleteFiling(filing.id)}>Delete</button></td>
               </tr>
             ))}
           </tbody>
@@ -104,17 +108,17 @@ export default function Tax({ totalIncome, totalExpenses }) {
       </div>
 
       {showModal && (
-        <div className="modal d-block">
-          <div className="modal-dialog modal-dialog-centered">
+        <div className="modal">
+          <div className="modal-wrapper">
             <form className="modal-content" onSubmit={handleFile}>
               <div className="modal-header">
                 <h5 className="modal-title">File Tax</h5>
-                <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
+                <button type="button" className="btn btn-danger" onClick={() => setShowModal(false)}><i className="bi bi-x-lg"></i></button>
               </div>
               <div className="modal-body d-flex flex-column gap-3">
                 <div>
                   <label className="form-label">Filing period</label>
-                  <input className="form-control" type="date" value={period} onChange={(event) => setPeriod(event.target.value)} required />
+                  <input className="form-control" type="month" value={period} onChange={(event) => setPeriod(event.target.value)} required />
                 </div>
                 <ul className="list-group">
                   <li className="list-group-item d-flex justify-content-between">
@@ -141,9 +145,8 @@ export default function Tax({ totalIncome, totalExpenses }) {
               </div>
 
               <div className="modal-footer">
-                <button type="button" className="btn btn-light" onClick={() => setShowModal(false)}>Cancel
-                </button>
-                <button type="submit" className="btn btn-dark"> File Tax</button>
+                <button type="button" className="btn btn-danger" onClick={() => setShowModal(false)}>Cancel</button>
+                <button type="submit" className="btn btn-secondary">File Tax</button>
               </div>
             </form>
           </div>

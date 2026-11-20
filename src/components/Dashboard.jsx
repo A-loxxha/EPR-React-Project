@@ -14,29 +14,29 @@ export default function Dashboard() {
   const { totalIncome, netProfit } = useFinance();
 
   return (
-    <div className="overview fg-black">
+    <div className="overview">
       <h1>Dashboard</h1>
       <h3>Business Overview</h3>
       <div className="overview-wrapper">
         <div className="overview-card">
           <h4>Total Revenue</h4>
           <h3>Ksh {totalIncome.toLocaleString()}</h3>
-          <p><span><i class="bi bi-arrow-up"></i>12.5%</span> vs last month</p>
+          <p><span><i className="bi bi-arrow-up"></i>12.5%</span> vs last month</p>
         </div>
         <div className="overview-card">
           <h4>Net Profit</h4>
           <h3>Ksh {netProfit.toLocaleString()}</h3>
-          <p><span><i class="bi bi-arrow-up"></i>8.2% </span>vs last month</p>
+          <p><span><i className="bi bi-arrow-up"></i>8.2% </span>vs last month</p>
         </div>
         <div className="overview-card">
           <h4>Total Orders</h4>
           <h3>204</h3>
-          <p><span><i class="bi bi-arrow-up"></i>6.4%</span> vs last month</p>
+          <p><span><i className="bi bi-arrow-up"></i>6.4%</span> vs last month</p>
         </div>
         <div className="overview-card">
           <h4>Average Order Value</h4>
           <h3>Ksh 2605</h3>
-          <p><span><i class="bi bi-arrow-up"></i>3.1% </span> vs last month</p>
+          <p><span><i className="bi bi-arrow-up"></i>3.1% </span> vs last month</p>
         </div>
         <div className="overview-card">
           <h4>Average weekly Revenue</h4>

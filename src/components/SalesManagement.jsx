@@ -70,9 +70,8 @@ export default function SalesManagement() {
     <div className="sales-content fg-black">
       <div className="d-flex justify-content-between mb-3">
         <h1 className="h2 mb-0">Sales Management</h1>
-        <button className="btn btn-dark rounded-pill px-4" onClick={openAddModal}>
-          <i className="bi bi-plus-lg me-1"></i> Add Order
-        </button>
+        <button className="btn btn-secondary btn-sm rounded-pill px-2" onClick={openAddModal}>
+          <i className="bi bi-plus-lg me-1"></i> Add Order</button>
       </div>
 
       <div className="sales-table">
@@ -98,8 +97,8 @@ export default function SalesManagement() {
                 <td>{order.paymentMethod}</td>
                 <td>{order.paymentStatus}</td>
                 <td>
-                  <button className="btn btn-sm" onClick={() => openEditModal(order)}>Update </button>
-                  <button className="btn btn-sm" onClick={() => deleteOrder(order.id)}>Delete</button>
+                  <button className="btn btn-sm btn-outline-dark me-2" onClick={() => openEditModal(order)}>Update </button>
+                  <button className="btn btn-sm btn-outline-danger" onClick={() => deleteOrder(order.id)}>Delete</button>
                 </td>
               </tr>
             ))}
@@ -108,17 +107,16 @@ export default function SalesManagement() {
       </div>
 
       {showModal && (
-        <div className="modal d-block">
-          <div className="modal-dialog modal-dialog-centered">
+        <div className="modal">
+          <div className="modal-wrapper">
             <form className="modal-content" onSubmit={handleSubmit}>
               <div className="modal-header">
                 <h5 className="modal-title">
                   {id !== null ? "Update Order" : "Add Order"}
                 </h5>
-                <button type="button" className="btn-close" onClick={closeModal}></button>
+                <button type="button" className="btn btn-danger" onClick={closeModal}><i class="bi bi-x"></i></button>
               </div>
-
-              <div className="modal-body d-flex flex-column gap-3">
+              <div className="modal-body d-flex flex-column p-4">
                 <input className="form-control" name="orderNo" placeholder="Order No" value={form.orderNo} onChange={handleChange} required/>
                 <input className="form-control" name="customer" placeholder="Customer" value={form.customer} onChange={handleChange}required/>
                 <input className="form-control" type="date" name="date" value={form.date} onChange={handleChange} required/>
@@ -137,12 +135,11 @@ export default function SalesManagement() {
                   <option>Overview</option>
                 </select>
               </div>
-
-              <div className="pt-4">
-                <button type="button" className="btn" onClick={closeModal}>
+              <div className="p-4">
+                <button type="button" className="btn btn-danger" onClick={closeModal}>
                   Cancel
                 </button>
-                <button type="submit" className="btn">
+                <button type="submit" className="btn btn-secondary">
                   {id !== null ? "Save Changes" : "Add Order"}
                 </button>
               </div>

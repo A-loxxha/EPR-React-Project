@@ -62,8 +62,8 @@ export default function Invoice() {
   }
 
   return (
-    <section className="mt-5 fg-black">
-      <div className="d-flex justify-content-between align-items-center mb-3">
+    <section className="mt-5">
+      <div className="d-flex align-items-center mb-3">
         <h3 className="mb-0">Invoices</h3>
         <button className="btn btn-dark rounded-pill px-4" onClick={() => openModal()}>
           <i className="bi bi-plus-lg me-1"></i> Add Invoice
@@ -103,18 +103,14 @@ export default function Invoice() {
         </table>
       </div>
       {showModal && (
-        <div className="modal d-block">
-          <div className="modal-dialog modal-dialog-centered">
+        <div className="modal">
+          <div className="modal-wrapper">
             <form className="modal-content" onSubmit={handleSave}>
               <div className="modal-header">
                 <h5 className="modal-title">
                   {form.id !== undefined ? "Update Invoice" : "Add Invoice"}
                 </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setShowModal(false)}
-                ></button>
+                <button type="button" className="btn btn-danger" onClick={() => setShowModal(false)}><i class="bi bi-x"></i></button>
               </div>
               <div className="modal-body d-flex flex-column gap-3">
                 <input className="form-control" name="invoiceNo" placeholder="Invoice No" value={form.invoiceNo} onChange={handleChange} required/>
@@ -134,9 +130,9 @@ export default function Invoice() {
                   <option>Overdue</option>
                 </select>
               </div>
-              <div>
-                <button type="button" className="btn btn-light" onClick={() => setShowModal(false)}>Cancel</button>
-                <button type="submit" className="btn btn-dark">Save</button>
+              <div className="p-3">
+                <button type="button" className="btn btn-danger" onClick={() => setShowModal(false)}>Cancel</button>
+                <button type="submit" className="btn btn-secondary">Save</button>
               </div>
             </form>
           </div>
