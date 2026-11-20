@@ -8,7 +8,7 @@ export default function Inventory() {
   const [form, setForm] = useState(emptyForm);
 
   useEffect(() => {
-    fetch("/EPR-React-Project/db.json/inventory")
+    fetch("http://localhost:4000/inventory")
       .then((response) => response.json())
       .then((data) => setInventory(data));
   }, []);
@@ -30,7 +30,7 @@ export default function Inventory() {
     const item = {...form, itemQuantity: Number(form.itemQuantity), itemPrice: Number(form.itemPrice) };
 
     fetch(
-      isEditing ? `/EPR-React-Project/db.json/inventory/${form.id}`:"/EPR-React-Project/db.json/inventory",
+      isEditing ? `http://localhost:4000/inventory/${form.id}`:"http://localhost:4000/inventory",
       {
         method: isEditing ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -49,7 +49,7 @@ export default function Inventory() {
   }
 
   function deleteItem(id) {
-    fetch(`/EPR-React-Project/db.json/inventory/${id}`,
+    fetch(`http://localhost:4000/inventory/${id}`,
         { method: "DELETE" })
         .then(() => setInventory(inventory.filter((item) => item.id !== id))
     );

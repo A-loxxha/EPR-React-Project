@@ -8,7 +8,7 @@ export default function SalesManagement() {
   const [form, setForm] = useState({});
 
   useEffect(() => {
-    fetch("/EPR-React-Project/db.json/orders")
+    fetch("http://localhost:4000/orders")
       .then((response) => response.json())
       .then((data) => setOrders(data));
   }, []);
@@ -40,7 +40,7 @@ export default function SalesManagement() {
     const isEditing = id !== null;
 
     fetch(
-      isEditing? `/EPR-React-Project/db.json/orders/${id}`: "/EPR-React-Project/db.json/orders",
+      isEditing? `http://localhost:4000/orders/${id}`: "http://localhost:4000/orders",
       {
         method: isEditing ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -61,7 +61,7 @@ export default function SalesManagement() {
   function deleteOrder(id) {
     if (!window.confirm("Delete this order?")) return;
 
-    fetch(`/EPR-React-Project/db.json/orders/${id}`, { method: "DELETE" }).then(() =>
+    fetch(`http://localhost:4000/orders/${id}`, { method: "DELETE" }).then(() =>
       setOrders(orders.filter((order) => order.id !== id))
     );
   }

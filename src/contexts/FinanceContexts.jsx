@@ -7,11 +7,11 @@ export function FinanceProvider({children}) {
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
-    fetch("/EPR-React-Project/db.json/orders")
+    fetch("http://localhost:4000/orders")
       .then((response) => response.json())
       .then((data) => setIncome(data));
 
-    fetch("/EPR-React-Project/db.json/expenses")
+    fetch("http://localhost:4000/expenses")
       .then((response) => response.json())
       .then((data) => setExpenses(data));
   }, []);

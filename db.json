@@ -161,15 +161,6 @@
   ],
   "orders": [
     {
-      "id": "1",
-      "orderNo": "ORD-1001",
-      "customer": "Wanjiku Kamau",
-      "date": "2026-11-01",
-      "total": 12500,
-      "paymentMethod": "M-Pesa",
-      "paymentStatus": "Paid"
-    },
-    {
       "id": "2",
       "orderNo": "ORD-1002",
       "customer": "Brian Otieno",
@@ -226,6 +217,15 @@
       "amount": 2000,
       "status": "Unpaid",
       "id": "2lT3U0JM6rg"
+    },
+    {
+      "invoiceNo": "i003",
+      "customer": "Wanjiku Kamau",
+      "dateIssued": "2026-11-20",
+      "dueDate": "2026-12-02",
+      "amount": 3000,
+      "status": "Unpaid",
+      "id": "LA6ZR7VZnmY"
     }
   ],
   "taxes": [
@@ -237,8 +237,8 @@
       "incomeTax": 7860,
       "totalTax": 12052,
       "status": "Filed",
-      "dateFiled": "2026-11-19",
-      "id": "xWvNeIu1wCQ"
+      "dateFiled": "2026-11-20",
+      "id": "t5k7oON09-w"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
