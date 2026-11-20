@@ -11,7 +11,7 @@ export default function Tax() {
   const incomeTaxRate = 0.3
 
   useEffect(() => {
-    fetch("http://localhost:4000/taxes")
+    fetch("/EPR-React-Project/db.json/taxes")
       .then((response) => response.json())
       .then((data) => setFilings(data))
   }, [])
@@ -39,7 +39,7 @@ export default function Tax() {
     dateFiled: new Date().toISOString().split("T")[0],
 }
 
-    fetch("http://localhost:4000/taxes",{
+    fetch("/EPR-React-Project/db.json/taxes",{
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(filing),
@@ -53,7 +53,7 @@ export default function Tax() {
   }
 
   function markPaid(id) {
-    fetch(`http://localhost:4000/taxes/${id}`,{
+    fetch(`/EPR-React-Project/db.json/taxes/${id}`,{
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: "Paid" }),
@@ -65,7 +65,7 @@ export default function Tax() {
   }
 
   function deleteFiling(id) {
-    fetch(`http://localhost:4000/taxes/${id}`, 
+    fetch(`/EPR-React-Project/db.json/taxes/${id}`, 
         { method: "DELETE" }).then(() =>
       setFilings(filings.filter((filing) => filing.id !== id))
     )

@@ -8,7 +8,7 @@ export default function Customers() {
   const [form, setForm] = useState(emptyForm);
 
   useEffect(() => {
-    fetch("http://localhost:4000/customers")
+    fetch("/EPR-React-Project/db.json/customers")
       .then((res) => res.json())
       .then((data) => setCustomers(data));
   }, []);
@@ -33,8 +33,8 @@ export default function Customers() {
 
     fetch(
       isEditing
-        ? `http://localhost:4000/customers/${form.id}`
-        : "http://localhost:4000/customers",
+        ? `/EPR-React-Project/db.json/customers/${form.id}`
+        : "/EPR-React-Project/db.json/customers",
       {
         method: isEditing ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -53,7 +53,7 @@ export default function Customers() {
   }
 
   function deleteCustomer(id) {
-    fetch(`http://localhost:4000/customers/${id}`, { method: "DELETE" }).then(
+    fetch(`/EPR-React-Project/db.json/customers/${id}`, { method: "DELETE" }).then(
       () => setCustomers(customers.filter((customer) => customer.id !== id))
     );
   }

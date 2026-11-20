@@ -31,7 +31,7 @@ export default function Expenses() {
     const expense = { ...form, amount: Number(form.amount) }
 
     fetch(
-      isEditing? `http://localhost:4000/expenses/${form.id}`:"http://localhost:4000/expenses",
+      isEditing? `/EPR-React-Project/db.json/expenses/${form.id}`:"/EPR-React-Project/db.json/expenses",
       {
         method: isEditing ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -50,7 +50,7 @@ export default function Expenses() {
   }
 
   function deleteExpense(id) {
-    fetch(`http://localhost:4000/expenses/${id}`,
+    fetch(`/EPR-React-Project/db.json/expenses/${id}`,
         { method: "DELETE" }).then(
       () => setExpenses(expenses.filter((expense) => expense.id !== id))
     )

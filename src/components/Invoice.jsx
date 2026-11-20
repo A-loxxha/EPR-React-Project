@@ -14,7 +14,7 @@ export default function Invoice() {
   const [form, setForm] = useState(emptyForm)
 
   useEffect(() => {
-    fetch("http://localhost:4000/invoices")
+    fetch("/EPR-React-Project/db.json/invoices")
       .then((response) => response.json())
       .then((data) => setInvoices(data))
   }, [])
@@ -36,7 +36,7 @@ export default function Invoice() {
 
     fetch(
       isEditing
-        ? `http://localhost:4000/invoices/${form.id}`:"http://localhost:4000/invoices",
+        ? `/EPR-React-Project/db.json/invoices/${form.id}`:"/EPR-React-Project/db.json/invoices",
       {
         method: isEditing ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
@@ -55,7 +55,7 @@ export default function Invoice() {
   }
 
   function deleteInvoice(id) {
-    fetch(`http://localhost:4000/invoices/${id}`,
+    fetch(`/EPR-React-Project/db.json/invoices/${id}`,
         { method: "DELETE" })
     .then(() => setInvoices(invoices.filter((invoice) => invoice.id !== id))
     )
