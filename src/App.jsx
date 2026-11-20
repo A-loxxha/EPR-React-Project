@@ -16,8 +16,8 @@ export default function App(){
         <Route path="/" element={<Landing />} />
         <Route element={<AppRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/salesManagement" element={<SalesManagement />}/>
-          <Route path="/finance" element={<Finance />} />
+          <Route path="/salesManagement" element={<SalesManagement/>}/>
+          <Route path="/finance" element={<Finance />}/>
           <Route path="/customers" element={<Customers />} />
           <Route path="/inventory" element={<Inventory />} />
         </Route>

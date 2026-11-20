@@ -6,9 +6,6 @@ export default function SideBar() {
   return (
     <div className="side-bar">
       <nav>
-        {/* <label class="form-control form-adorn">
-          <input type="search" className="form-ghost" placeholder="Search..." />
-        </label> */}
         <div className="sideBarButtons">
             <button className="btn btn-sm btn-secondary"><i className="bi bi-house"></i><Link to="/" className="link"> Home</Link></button>
             <button className="btn btn-sm btn-secondary" onClick={() => navigate("/dashboard")}><i className="bi bi-square-half"> </i>Dashboard</button>
