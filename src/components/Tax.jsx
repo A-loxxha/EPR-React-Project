@@ -79,7 +79,7 @@ export default function Tax() {
           className="btn btn-dark px-4" onClick={() => setShowModal(true)}>
           <i className="bi bi-file-earmark-text me-1"></i>File Tax</button>
       </div>
-      <div className="finance-table">
+      <div className="finance-table"> 
         <table>
           <thead>
             <tr>
