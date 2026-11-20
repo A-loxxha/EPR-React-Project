@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/ERP-React-Project/',
+  base: '/EPR-React-Project/',
 })
