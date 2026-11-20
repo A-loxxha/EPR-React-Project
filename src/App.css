@@ -50,6 +50,7 @@ button{
     box-shadow: var(--box-shadow);
     backdrop-filter: blur(2px);
 }
+
 .side-bar button{
     display: block;
     margin-top: 2.5rem;
